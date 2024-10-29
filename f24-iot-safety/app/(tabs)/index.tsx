@@ -1,70 +1,116 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import React from 'react';
+import { View, Text, ScrollView, StyleSheet } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedView } from '@/components/ThemedView';
-
-export default function HomeScreen() {
+const BlitzApp: React.FC = () => {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({ ios: 'cmd + d', android: 'cmd + m' })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-        <ThemedText>
-          Tap the Explore tab to learn more about what's included in this starter app.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          When you're ready, run{' '}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    <ScrollView style={styles.container}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.headerText}>blitz</Text>
+      </View>
+
+      {/* Position Breakdown (Placeholder) */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Position Break Down</Text>
+        <View style={styles.chartPlaceholder}>
+          <Text>Chart Placeholder</Text>
+        </View>
+      </View>
+
+      {/* Top 3 Players in Alerts */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Top 3 Players in Alerts</Text>
+        <View style={styles.table}>
+          <TableRow headers={['Player Name', 'Position', 'Alerts', 'Impacts']} />
+          <TableRow data={['#28 Billings', 'RB', '6', '81']} />
+          <TableRow data={['#14 Williams', 'WR', '4', '31']} />
+          <TableRow data={['#39 Ruth', 'TE/FB', '2', '43']} />
+        </View>
+      </View>
+
+      {/* Top 3 Players in Load */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Top 3 Players in Load</Text>
+        <View style={styles.table}>
+          <TableRow headers={['Player Name', 'Position', 'Load']} />
+          <TableRow data={['#28 Billings', 'RB', '47%']} />
+          <TableRow data={['#26 Little', 'TE/FB', '42%']} />
+          <TableRow data={['#39 Billings', 'TE/FB', '39%']} />
+        </View>
+      </View>
+    </ScrollView>
   );
-}
+};
+
+// Reusable table row component with type annotations
+type TableRowProps = {
+  headers?: string[];
+  data?: string[];
+};
+
+const TableRow: React.FC<TableRowProps> = ({ headers, data }) => (
+  <View style={styles.tableRow}>
+    {(headers || data)?.map((item, index) => (
+      <Text key={index} style={headers ? styles.tableHeader : styles.tableData}>
+        {item}
+      </Text>
+    ))}
+  </View>
+);
 
 const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#fff',
+  },
+  header: {
+    paddingVertical: 10,
     alignItems: 'center',
-    gap: 8,
   },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+  headerText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#333',
   },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
+  section: {
+    marginVertical: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 10,
+  },
+  chartPlaceholder: {
+    height: 220,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e1e1e1',
+    borderRadius: 10,
+  },
+  table: {
+    borderWidth: 1,
+    borderColor: '#ddd',
+    borderRadius: 5,
+  },
+  tableRow: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ddd',
+  },
+  tableHeader: {
+    fontWeight: 'bold',
+    fontSize: 14,
+    color: '#333',
+  },
+  tableData: {
+    fontSize: 14,
+    color: '#333',
   },
 });
+
+export default BlitzApp;
+
+
