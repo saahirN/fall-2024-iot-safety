@@ -1,116 +1,154 @@
-import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
+import LinearGradient from "react-native-linear-gradient";
+
+const players = [
+  {
+    name: "CJ BAXTER",
+    alerts: 6,
+    impacts: 82,
+    image: "https://example.com/cj_baxter.jpg", // Replace with actual image URLs
+  },
+  {
+    name: "ANTHONY HILL JR.",
+    alerts: 4,
+    impacts: 31,
+    image: "https://example.com/anthony_hill.jpg",
+  },
+  {
+    name: "DEANDRE MOORE JR.",
+    alerts: 2,
+    impacts: 43,
+    image: "https://example.com/deandre_moore.jpg",
+  },
+];
 
 const BlitzApp: React.FC = () => {
   return (
-    <ScrollView style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerText}>blitz</Text>
+    <View style={styles.container}>
+      <View style={styles.banner}>
+        <Image
+          source={{
+            uri: "https://s3-alpha-sig.figma.com/img/9cd4/4ca0/cb5aa4a578a2576034af44f0874540dd?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lRaW2yWCqjmih1TcvlOLC1i9YAvf4q7DucKs0nLwSEVNaiX956~lQpglh8W8XIMW6WBbaXEgdM5ViBWd5HWSk-3Bi6eWAAlvedd0CkFuq9UEnhpoUkiJJ1GOWNnt8Qt1Qd2wCgIfEuOqxd0-2BboOoTlnGztPQlv5NSlpYZGg3h5whkMO8xG4Rp5Sxl2wCJnovhzC-EcdTc9nBHrd3-DHoqDSlVr1022C-Dw6zgoUoKh0HMVo833UyPJIPRyLxjEYk9jVFTp5tGxisPFpRWXoneazVOqxh81sj9KDxHzzhBmV5gXonc4A1XOqqe5~rqk55U5SFfc9qNF42xeZ1wN0Q__",
+          }} // Replace with actual logo URL
+          style={styles.logo}
+        />
+        <Text style={styles.title}>UT FOOTBALL</Text>
       </View>
 
-      {/* Position Breakdown (Placeholder) */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Position Break Down</Text>
-        <View style={styles.chartPlaceholder}>
-          <Text>Chart Placeholder</Text>
-        </View>
+      <View style={styles.alertsHeader}>
+        <Text style={styles.alertsHeaderText}>Top 3 Players in Alerts</Text>
       </View>
 
-      {/* Top 3 Players in Alerts */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Top 3 Players in Alerts</Text>
-        <View style={styles.table}>
-          <TableRow headers={['Player Name', 'Position', 'Alerts', 'Impacts']} />
-          <TableRow data={['#28 Billings', 'RB', '6', '81']} />
-          <TableRow data={['#14 Williams', 'WR', '4', '31']} />
-          <TableRow data={['#39 Ruth', 'TE/FB', '2', '43']} />
-        </View>
+      <View style={styles.tableHeader}>
+        <Text style={styles.tableHeaderText}>Player</Text>
+        <Text style={styles.tableHeaderText}>Alerts</Text>
+        <Text style={styles.tableHeaderText}>Impacts</Text>
       </View>
 
-      {/* Top 3 Players in Load */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Top 3 Players in Load</Text>
-        <View style={styles.table}>
-          <TableRow headers={['Player Name', 'Position', 'Load']} />
-          <TableRow data={['#28 Billings', 'RB', '47%']} />
-          <TableRow data={['#26 Little', 'TE/FB', '42%']} />
-          <TableRow data={['#39 Billings', 'TE/FB', '39%']} />
-        </View>
-      </View>
-    </ScrollView>
+      <ScrollView>
+        {players.map((player, index) => (
+          <View key={index} style={styles.playerRow}>
+            <View style={styles.playerInfo}>
+              <Image
+                source={{ uri: player.image }}
+                style={styles.playerImage}
+              />
+              <Text style={styles.playerName}>{player.name}</Text>
+            </View>
+            <Text style={styles.playerData}>{player.alerts}</Text>
+            <Text style={styles.playerData}>{player.impacts}</Text>
+          </View>
+        ))}
+      </ScrollView>
+    </View>
   );
 };
-
-// Reusable table row component with type annotations
-type TableRowProps = {
-  headers?: string[];
-  data?: string[];
-};
-
-const TableRow: React.FC<TableRowProps> = ({ headers, data }) => (
-  <View style={styles.tableRow}>
-    {(headers || data)?.map((item, index) => (
-      <Text key={index} style={headers ? styles.tableHeader : styles.tableData}>
-        {item}
-      </Text>
-    ))}
-  </View>
-);
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: "#F5F5F5",
   },
-  header: {
-    paddingVertical: 10,
-    alignItems: 'center',
+  banner: {
+    alignItems: "center",
+    backgroundColor: "#DC011A",
+    paddingTop: 50,
+    borderTopColor: "red",
+    //borderTopWidth: 100,
+    //borderBottomColor: "white",
+    //borderBottomWidth: 100,
+    paddingBottom: 20,
   },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-  },
-  section: {
-    marginVertical: 20,
-  },
-  sectionTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
+  logo: {
+    width: 60,
+    height: 60,
     marginBottom: 10,
+    borderRadius: 1000,
+    marginRight: 10,
+    borderWidth: 0,
   },
-  chartPlaceholder: {
-    height: 220,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#e1e1e1',
-    borderRadius: 10,
+  title: {
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "black",
   },
-  table: {
-    borderWidth: 1,
-    borderColor: '#ddd',
-    borderRadius: 5,
-  },
-  tableRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  alertsHeader: {
+    backgroundColor: "#D3D3D3",
     padding: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
+  },
+  alertsHeaderText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000000",
+    textAlign: "center",
   },
   tableHeader: {
-    fontWeight: 'bold',
-    fontSize: 14,
-    color: '#333',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#000000",
+    backgroundColor: "#FFFFFF",
   },
-  tableData: {
+  tableHeaderText: {
+    fontWeight: "bold",
     fontSize: 14,
-    color: '#333',
+    color: "#000000",
+  },
+  playerRow: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#FFFFFF",
+    borderBottomWidth: 1,
+    borderBottomColor: "#E0E0E0",
+  },
+  playerInfo: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  playerImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    marginRight: 10,
+    borderWidth: 2,
+    borderColor: "#C8102E",
+  },
+  playerName: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#000000",
+  },
+  playerData: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#000000",
   },
 });
 
 export default BlitzApp;
-
-
