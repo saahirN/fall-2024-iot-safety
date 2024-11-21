@@ -7,19 +7,19 @@ const players = [
     name: "CJ BAXTER",
     alerts: 6,
     impacts: 82,
-    image: "https://example.com/cj_baxter.jpg", // Replace with actual image URLs
+    image: "https://texaslonghorns.com/images/2023/10/12/Baxter_CJ-2023_ax9bd.png", // Replace with actual image URLs
   },
   {
     name: "ANTHONY HILL JR.",
     alerts: 4,
     impacts: 31,
-    image: "https://example.com/anthony_hill.jpg",
+    image: "https://texaslonghorns.com/images/2024/9/5/Hill_Anthony_2024_crop_ZQDp4.jpg",
   },
   {
     name: "DEANDRE MOORE JR.",
     alerts: 2,
     impacts: 43,
-    image: "https://example.com/deandre_moore.jpg",
+    image: "https://dxa7m90h2v1am.cloudfront.net/images/2024/9/5/Moore_DeAndre_2024_crop_Lgj3U.jpg?width=300",
   },
 ];
 
@@ -50,11 +50,11 @@ const BlitzApp: React.FC = () => {
         {players.map((player, index) => (
           <View key={index} style={styles.playerRow}>
             <View style={styles.playerInfo}>
+              <Text style={styles.playerName}>{player.name}</Text>
               <Image
                 source={{ uri: player.image }}
                 style={styles.playerImage}
               />
-              <Text style={styles.playerName}>{player.name}</Text>
             </View>
             <Text style={styles.playerData}>{player.alerts}</Text>
             <Text style={styles.playerData}>{player.impacts}</Text>
@@ -122,32 +122,36 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 45,
     backgroundColor: "#FFFFFF",
     borderBottomWidth: 1,
     borderBottomColor: "#E0E0E0",
   },
   playerInfo: {
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
+    flex: 2
   },
   playerImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+    width: 80,
+    height: 80,
+    borderRadius: 100,
     marginRight: 10,
     borderWidth: 2,
     borderColor: "#C8102E",
   },
   playerName: {
     fontSize: 14,
+    textAlign: "center", 
     fontWeight: "bold",
     color: "#000000",
   },
   playerData: {
-    fontSize: 16,
+    fontSize: 32,
     fontWeight: "bold",
+    textAlign: "center", 
     color: "#000000",
+    flex: 1
   },
 });
 
