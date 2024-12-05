@@ -1,146 +1,251 @@
 import React from 'react';
-import { View, Text, ScrollView, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  Image,
+  FlatList,
+  StyleSheet,
+  SafeAreaView,
+} from 'react-native';
 
-const BlitzRosterReport: React.FC = () => {
-  return (
-    <ScrollView contentContainerStyle={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.headerText}>Roster Report</Text>
-        <View style={styles.legend}>
-          <View style={styles.legendItem}>
-            <RiskIndicator riskLevel="Low" />
-            <Text style={styles.legendText}>Low</Text>
-          </View>
-          <View style={styles.legendItem}>
-            <RiskIndicator riskLevel="Medium" />
-            <Text style={styles.legendText}>Medium</Text>
-          </View>
-          <View style={styles.legendItem}>
-            <RiskIndicator riskLevel="High" />
-            <Text style={styles.legendText}>High</Text>
-          </View>
-        </View>
+const data = [
+  {
+    id: 1,
+    rank: 4,
+    name: 'CJ BAXTER',
+    position: 'RB',
+    height: "6'1",
+    weight: '220 lbs',
+    year: '1L',
+    risk: 'HIGH',
+    percentage: '95%',
+    image: 'https://images.sidearmdev.com/convert?url=https%3a%2f%2fdxbhsrqyrr690.cloudfront.net%2fsidearm.nextgen.sites%2ftexassports_com%2fimages%2f2023%2f10%2f12%2fBaxter_CJ-2023_ax9bd.png&type=webp',
+  },
+  {
+    id: 4,
+    rank: 7,
+    name: 'ISAIAH BOND',
+    position: 'WR',
+    height: "5'11",
+    weight: '180 lbs',
+    year: 'TR',
+    risk: 'MEDIUM',
+    percentage: '68%',
+    image: 'https://texaslonghorns.com/images/2024/9/5/Moore_DeAndre_2024_crop_Lgj3U.jpg',
+  },
+  {
+    id: 5,
+    rank: 12,
+    name: 'QUIN EWERS',
+    position: 'RB',
+    height: "5'11",
+    weight: '195 lbs',
+    year: '1L',
+    risk: 'MEDIUM',
+    percentage: '60%',
+    image: 'https://texaslonghorns.com/images/2023/10/13/Ewers_Quinn_2023.png',
+  },
+  {
+    id: 6,
+    rank: 5,
+    name: 'RYAN WINGO',
+    position: 'WR',
+    height: "6'2",
+    weight: '210 lbs',
+    year: 'HS',
+    risk: 'LOW',
+    percentage: '20%',
+    image: 'https://via.placeholder.com/50?text=RW',
+  },
+  {
+    id: 7,
+    rank: 16,
+    name: 'MICHAEL TAFFEE',
+    position: 'DB',
+    height: "6'0",
+    weight: '195 lbs',
+    year: '2L',
+    risk: 'LOW',
+    percentage: '10%',
+    image: 'https://dxa7m90h2v1am.cloudfront.net/images/2023/10/13/Taaffe_Michael_2023.png?width=300',
+  },
+  {
+    id: 8,
+    rank: 15,
+    name: 'JORDAN WHITTINGTON',
+    position: 'WR',
+    height: "6'1",
+    weight: '205 lbs',
+    year: '2L',
+    risk: 'LOW',
+    percentage: '30%',
+    image: 'https://via.placeholder.com/50?text=JW',
+  },
+  {
+    id: 9,
+    rank: 22,
+    name: 'ETHAN BURKE',
+    position: 'DL',
+    height: "6'6",
+    weight: '250 lbs',
+    year: '2L',
+    risk: 'LOW',
+    percentage: '12%',
+    image: 'https://texaslonghorns.com/images/2023/10/12/Baxter_CJ-2023_ax9bd.png',
+  },
+  {
+    id: 10,
+    rank: 18,
+    name: 'JONTAY COOK',
+    position: 'WR',
+    height: "6'0",
+    weight: '185 lbs',
+    year: 'FR',
+    risk: 'LOW',
+    percentage: '25%',
+    image: 'https://texaslonghorns.com/images/2024/2/15/Bond_Isaiah-2024.jpg',
+  },
+];
+
+const sortedData = data.sort((a, b) => {
+  const riskLevels = { HIGH: 3, MEDIUM: 2, LOW: 1 };
+  const riskComparison = riskLevels[b.risk] - riskLevels[a.risk];
+  if (riskComparison === 0) {
+    return b.rank - a.rank;
+  }
+  return riskComparison;
+});
+
+const RosterReport = () => {
+  const getBorderColor = (risk) => {
+    switch (risk) {
+      case 'HIGH':
+        return '#ff6a6a'; // Red for high risk
+      case 'MEDIUM':
+        return '#ffc107'; // Yellow for medium risk
+      case 'LOW':
+        return '#4caf50'; // Green for low risk
+      default:
+        return '#ddd';
+    }
+  };
+
+  const renderItem = ({ item }) => (
+    <View style={styles.listItem}>
+      {/* Player Image and Number */}
+      <View style={[styles.imageContainer, { borderColor: getBorderColor(item.risk) }]}>
+        <Text style={styles.playerNumber}>{item.rank}</Text>
+        <Image source={{ uri: item.image }} style={styles.playerImage} />
       </View>
 
-      {/* Roster Table */}
-      <View style={styles.table}>
-        <View style={styles.tableHeader}>
-          <Text style={styles.tableHeaderText}>Player</Text>
-          <Text style={styles.tableHeaderText}>Position</Text>
-          <Text style={styles.tableHeaderText}>Risk</Text>
-        </View>
-        <RosterRow player="#1" position="WR" risk="95%" riskLevel="High" />
-        <RosterRow player="#2" position="QB" risk="93%" riskLevel="High" />
-        <RosterRow player="#3" position="DB" risk="85%" riskLevel="High" />
-        <RosterRow player="#4" position="WR" risk="60%" riskLevel="Medium" />
-        <RosterRow player="#5" position="RB" risk="45%" riskLevel="Medium" />
-        <RosterRow player="#6" position="WR" risk="30%" riskLevel="Low" />
-        <RosterRow player="#7" position="LB" risk="0%" riskLevel="Low" />
+      {/* Player Details */}
+      <View style={styles.playerDetails}>
+        <Text style={styles.name}>{item.name}</Text>
+        <Text style={styles.details}>
+          {item.position} / {item.height} / {item.weight} / {item.year}
+        </Text>
       </View>
-    </ScrollView>
+
+      {/* Risk Indicator */}
+      <View style={styles.riskIndicator}>
+        <Text style={styles.percentage}>{item.percentage}</Text>
+      </View>
+    </View>
   );
-};
 
-// Component to render each row in the roster
-type RosterRowProps = {
-  player: string;
-  position: string;
-  risk: string;
-  riskLevel: 'Low' | 'Medium' | 'High';
-};
+  return (
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.title}>ACTIVE ROSTER REPORT</Text>
+      </View>
 
-const RosterRow: React.FC<RosterRowProps> = ({ player, position, risk, riskLevel }) => (
-  <View style={styles.tableRow}>
-    <Text style={styles.tableData}>{player}</Text>
-    <RiskIndicator riskLevel={riskLevel} />
-    <Text style={styles.tableData}>{position}</Text>
-    <Text style={styles.tableData}>{risk}</Text>
-  </View>
-);
+      <Text style={styles.subtitle}>UT Austin Football Team</Text>
 
-// Component to render risk level indicator
-type RiskIndicatorProps = {
-  riskLevel: 'Low' | 'Medium' | 'High';
-};
-
-const RiskIndicator: React.FC<RiskIndicatorProps> = ({ riskLevel }) => {
-  const backgroundColor =
-    riskLevel === 'High' ? '#ff6a6a' :
-    riskLevel === 'Medium' ? '#ffd966' :
-    '#a8d9ff';
-
-  return <View style={[styles.riskIndicator, { borderColor: backgroundColor }]} />;
+      <FlatList
+        data={sortedData}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
+        ListHeaderComponent={() => (
+          <Text style={styles.updatedText}>Last updated: 40s ago</Text>
+        )}
+      />
+    </SafeAreaView>
+  );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    padding: 20,
-    backgroundColor: '#fff',
+    flex: 1,
+    backgroundColor: '#f8f8f8',
   },
   header: {
+    backgroundColor: '#d50000',
+    padding: 12,
     alignItems: 'center',
-    marginBottom: 20,
   },
-  headerText: {
-    fontSize: 24,
+  title: {
+    color: '#fff',
     fontWeight: 'bold',
+    fontSize: 19,
   },
-  legend: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    marginTop: 10,
+  subtitle: {
+    fontWeight: 'bold',
+    fontSize: 30,
+    marginTop: 24,
+    marginBottom: 6,
+    marginLeft: 24,
   },
-  legendItem: {
+  updatedText: {
+    fontSize: 14,
+    color: '#888',
+    textAlign: 'right',
+    marginHorizontal: 24,
+    marginBottom: 6,
+  },
+  listItem: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginHorizontal: 10,
-  },
-  legendText: {
-    marginLeft: 5,
-    fontSize: 14,
-    color: '#333',
-  },
-  table: {
-    marginTop: 20,
-  },
-  tableHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingBottom: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 24,
     borderBottomWidth: 1,
     borderBottomColor: '#ddd',
   },
-  tableHeaderText: {
-    fontWeight: 'bold',
-    fontSize: 16,
-    color: '#333',
-    flex: 1,
-    textAlign: 'center',
-  },
-  tableRow: {
+  imageContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignItems: 'center',
-    paddingVertical: 10,
+    borderWidth: 3,
+    borderRadius: 35, // Adjust to ensure the border wraps the circle image
+    padding: 5, // Space between border and image
+    marginRight: 12,
   },
-  tableData: {
-    fontSize: 16,
+  playerNumber: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    marginRight: 8,
+  },
+  playerImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+  },
+  playerDetails: {
     flex: 1,
-    textAlign: 'center',
-    color: '#333',
+  },
+  name: {
+    fontWeight: 'bold',
+    fontSize: 19,
+  },
+  details: {
+    fontSize: 14,
+    color: '#888',
   },
   riskIndicator: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    borderWidth: 2,
-    marginHorizontal: 10,
+    alignItems: 'center',
+  },
+  percentage: {
+    fontWeight: 'bold',
+    fontSize: 17,
   },
 });
 
-export default BlitzRosterReport;
-
-
-
+export default RosterReport;
