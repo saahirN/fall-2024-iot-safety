@@ -12,13 +12,13 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const teams = [
-  { id: '0', tag: '00', name: 'ANTHONY HILL JR.', details: 'LB / 6\'3" / 235 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/674/242/12242674.jpg' },
-  { id: '1', tag: '00', name: 'DEANDRE MOORE JR.', details: 'WR / 6\'0" / 195 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/929/416/12416929.jpg' },
-  { id: '2', tag: '03', name: 'QUINN EWERS', details: 'QB / 6\'2" / 195 lbs / 2L', image: 'https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg' },
-  { id: '3', tag: '04', name: 'CJ BAXTER', details: 'RB / 6\'1" / 220 lbs / 1L', image: 'https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg' },
-  { id: '4', tag: '05', name: 'RYAN WINGO', details: 'WR / 6\'2" / 210 lbs / HS', image: 'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM-1-e1536267956579.png' },
-  { id: '5', tag: '07', name: 'ISAIAH BOND', details: 'WR / 5\'11" / 180 lbs / TR', image: 'https://www.amarillo.com/gcdn/presto/2023/01/18/NAGN/438478cc-a329-4e79-96d6-d7eb3e83df34-20230116_Armando_Lujan_0011.JPG?crop=3209,1806,x0,y481&width=660&height=371&format=pjpg&auto=webp' },
-  { id: '6', tag: '16', name: 'MICHAEL TAAFFE', details: 'DB / 6\'0" / 195 lbs / 2L', image: 'https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png' },
+  { id: '0', tag: '00', name: 'CARTER BUCK', details: 'LB / 6\'3" / 235 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/674/242/12242674.jpg' },
+  { id: '1', tag: '00', name: 'CHASTON DITTA', details: 'WR / 6\'0" / 195 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/929/416/12416929.jpg' },
+  { id: '2', tag: '03', name: 'AIDEN ARCHER', details: 'QB / 6\'2" / 195 lbs / 2L', image: 'https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg' },
+  { id: '3', tag: '04', name: 'COOPER WEBB', details: 'RB / 6\'1" / 220 lbs / 1L', image: 'https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg' },
+  { id: '4', tag: '05', name: 'VANN HOPPING', details: 'WR / 6\'2" / 210 lbs / HS', image: 'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM-1-e1536267956579.png' },
+  { id: '5', tag: '07', name: 'EASTON AIRD', details: 'WR / 5\'11" / 180 lbs / TR', image: 'https://www.amarillo.com/gcdn/presto/2023/01/18/NAGN/438478cc-a329-4e79-96d6-d7eb3e83df34-20230116_Armando_Lujan_0011.JPG?crop=3209,1806,x0,y481&width=660&height=371&format=pjpg&auto=webp' },
+  { id: '6', tag: '16', name: 'MERRICK KAYS', details: 'DB / 6\'0" / 195 lbs / 2L', image: 'https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png' },
 ];
 
 const Report = () => {
@@ -80,13 +80,20 @@ const Report = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F5F5F5',
   },
   banner: {
-    alignItems: 'center',
-    backgroundColor: '#DC011A',
+    alignItems: "center",
+    backgroundColor: "#DC011A",
     paddingTop: 50,
     paddingBottom: 20,
+  },
+  logo: {
+    width: 60,
+    height: 60,
+    marginBottom: 10,
+    borderRadius: 30,
+    borderWidth: 0,
   },
   header: {
     flexDirection: 'row',
@@ -94,14 +101,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: '100%',
     paddingHorizontal: 16,
-  },
-  logo: {
-    width: 60,
-    height: 60,
-    marginBottom: 10,
-    borderRadius: 1000,
-    marginRight: 10,
-    borderWidth: 0,
   },
   title: {
     fontSize: 17,

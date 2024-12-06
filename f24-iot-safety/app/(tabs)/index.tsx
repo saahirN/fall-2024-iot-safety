@@ -3,19 +3,19 @@ import { View, Text, ScrollView, StyleSheet, Image } from "react-native";
 
 const players = [
   {
-    name: "CJ BAXTER",
+    name: "CARTER BUCK",
     alerts: 6,
     impacts: 82,
     image: "https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg",
   },
   {
-    name: "ANT HILL JR.",
+    name: "AIDEN ARCHER",
     alerts: 4,
     impacts: 31,
     image: "https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg",
   },
   {
-    name: "D. MOORE.",
+    name: "EASTON AIRD",
     alerts: 2,
     impacts: 43,
     image: "https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png",
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   playerName: {
-    fontSize: 14,
+    fontSize: 12,
     fontWeight: "bold",
     color: "#000000",
   },

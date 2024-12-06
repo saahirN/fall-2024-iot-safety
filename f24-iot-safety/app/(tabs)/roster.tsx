@@ -12,7 +12,7 @@ const data = [
   {
     id: 1,
     rank: '04',
-    name: 'CJ BAXTER',
+    name: 'CARTER BUCK',
     position: 'RB',
     height: "6'1",
     weight: '220 lbs',
@@ -24,7 +24,7 @@ const data = [
   {
     id: 4,
     rank: '07',
-    name: 'ISAIAH BOND',
+    name: 'CHASTON DITTA',
     position: 'WR',
     height: "5'11",
     weight: '180 lbs',
@@ -36,7 +36,7 @@ const data = [
   {
     id: 5,
     rank: 12,
-    name: 'QUIN EWERS',
+    name: 'AIDEN ARCHER',
     position: 'RB',
     height: "5'11",
     weight: '195 lbs',
@@ -48,7 +48,7 @@ const data = [
   {
     id: 6,
     rank: '05',
-    name: 'RYAN WINGO',
+    name: 'COOPER WEBB',
     position: 'WR',
     height: "6'2",
     weight: '210 lbs',
@@ -60,7 +60,7 @@ const data = [
   {
     id: 7,
     rank: 16,
-    name: 'MICHAEL TAFFEE',
+    name: 'VANN HOPPING',
     position: 'DB',
     height: "6'0",
     weight: '195 lbs',
@@ -72,7 +72,7 @@ const data = [
   {
     id: 8,
     rank: 15,
-    name: 'JORDAN WHITTINGTON',
+    name: 'EASTON AIRD',
     position: 'WR',
     height: "6'1",
     weight: '205 lbs',
@@ -84,7 +84,7 @@ const data = [
   {
     id: 9,
     rank: 22,
-    name: 'ETHAN BURKE',
+    name: 'MERRICK KAYS',
     position: 'DL',
     height: "6'6",
     weight: '250 lbs',
@@ -154,9 +154,15 @@ const RosterReport = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.title}>ACTIVE ROSTER REPORT</Text>
+    <View style={styles.container}>
+      <View style={styles.banner}>
+        <Image
+          source={{
+            uri: "https://image.maxpreps.io/school-mascot/e/0/9/e095cff2-1a68-48bf-a8cb-7c85ea824e67.gif?version=637977130800000000&width=128&height=128&auto=webp&format=pjpg",
+          }}
+          style={styles.logo}
+        />
+        <Text style={styles.title}>LAKE TRAVIS FOOTBALL</Text>
       </View>
 
       <Text style={styles.subtitle}>Lake Travis Football Team</Text>
@@ -169,14 +175,14 @@ const RosterReport = () => {
           <Text style={styles.updatedText}>Last updated: 40s ago</Text>
         )}
       />
-    </SafeAreaView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
+    backgroundColor: '#F5F5F5',
   },
   header: {
     backgroundColor: '#d50000',
@@ -186,7 +192,7 @@ const styles = StyleSheet.create({
   title: {
     color: '#fff',
     fontWeight: 'bold',
-    fontSize: 19,
+    fontSize: 20,
   },
   subtitle: {
     fontWeight: 'bold',
@@ -194,6 +200,19 @@ const styles = StyleSheet.create({
     marginTop: 24,
     marginBottom: 6,
     marginLeft: 24,
+  },
+  banner: {
+    alignItems: "center",
+    backgroundColor: "#DC011A",
+    paddingTop: 50,
+    paddingBottom: 20,
+  },
+  logo: {
+    width: 60,
+    height: 60,
+    marginBottom: 10,
+    borderRadius: 30,
+    borderWidth: 0,
   },
   updatedText: {
     fontSize: 14,
