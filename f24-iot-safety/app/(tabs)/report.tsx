@@ -12,13 +12,13 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 const teams = [
-  { id: '0', tag: '0', name: 'ANTHONY HILL JR.', details: 'LB / 6\'3" / 235 lbs / 1L', image: 'https://dxa7m90h2v1am.cloudfront.net/images/2024/9/5/Hill_Anthony_2024_crop_ZQDp4.jpg?width=300' },
-  { id: '1', tag: '0', name: 'DEANDRE MOORE JR.', details: 'WR / 6\'0" / 195 lbs / 1L', image: 'https://texaslonghorns.com/images/2024/9/5/Moore_DeAndre_2024_crop_Lgj3U.jpg' },
-  { id: '2', tag: '3', name: 'QUINN EWERS', details: 'QB / 6\'2" / 195 lbs / 2L', image: 'https://texaslonghorns.com/images/2023/10/13/Ewers_Quinn_2023.png' },
-  { id: '3', tag: '4', name: 'CJ BAXTER', details: 'RB / 6\'1" / 220 lbs / 1L', image: 'https://texaslonghorns.com/images/2023/10/12/Baxter_CJ-2023_ax9bd.png' },
-  { id: '4', tag: '5', name: 'RYAN WINGO', details: 'WR / 6\'2" / 210 lbs / HS', image: 'https://texaslonghorns.com/images/2024/2/15/Wingo_Ryan-2024.jpg' },
-  { id: '5', tag: '7', name: 'ISAIAH BOND', details: 'WR / 5\'11" / 180 lbs / TR', image: 'https://texaslonghorns.com/images/2024/2/15/Bond_Isaiah-2024.jpg' },
-  { id: '6', tag: '16', name: 'MICHAEL TAAFFE', details: 'DB / 6\'0" / 195 lbs / 2L', image: 'https://dxa7m90h2v1am.cloudfront.net/images/2023/10/13/Taaffe_Michael_2023.png?width=300' },
+  { id: '0', tag: '00', name: 'ANTHONY HILL JR.', details: 'LB / 6\'3" / 235 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/674/242/12242674.jpg' },
+  { id: '1', tag: '00', name: 'DEANDRE MOORE JR.', details: 'WR / 6\'0" / 195 lbs / 1L', image: 'https://s3media.247sports.com/Uploads/Assets/929/416/12416929.jpg' },
+  { id: '2', tag: '03', name: 'QUINN EWERS', details: 'QB / 6\'2" / 195 lbs / 2L', image: 'https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg' },
+  { id: '3', tag: '04', name: 'CJ BAXTER', details: 'RB / 6\'1" / 220 lbs / 1L', image: 'https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg' },
+  { id: '4', tag: '05', name: 'RYAN WINGO', details: 'WR / 6\'2" / 210 lbs / HS', image: 'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM-1-e1536267956579.png' },
+  { id: '5', tag: '07', name: 'ISAIAH BOND', details: 'WR / 5\'11" / 180 lbs / TR', image: 'https://www.amarillo.com/gcdn/presto/2023/01/18/NAGN/438478cc-a329-4e79-96d6-d7eb3e83df34-20230116_Armando_Lujan_0011.JPG?crop=3209,1806,x0,y481&width=660&height=371&format=pjpg&auto=webp' },
+  { id: '6', tag: '16', name: 'MICHAEL TAAFFE', details: 'DB / 6\'0" / 195 lbs / 2L', image: 'https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png' },
 ];
 
 const Report = () => {
@@ -52,7 +52,7 @@ const Report = () => {
         </View>
         <Image
           source={{
-            uri: 'https://s3-alpha-sig.figma.com/img/9cd4/4ca0/cb5aa4a578a2576034af44f0874540dd?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lRaW2yWCqjmih1TcvlOLC1i9YAvf4q7DucKs0nLwSEVNaiX956~lQpglh8W8XIMW6WBbaXEgdM5ViBWd5HWSk-3Bi6eWAAlvedd0CkFuq9UEnhpoUkiJJ1GOWNnt8Qt1Qd2wCgIfEuOqxd0-2BboOoTlnGztPQlv5NSlpYZGg3h5whkMO8xG4Rp5Sxl2wCJnovhzC-EcdTc9nBHrd3-DHoqDSlVr1022C-Dw6zgoUoKh0HMVo833UyPJIPRyLxjEYk9jVFTp5tGxisPFpRWXoneazVOqxh81sj9KDxHzzhBmV5gXonc4A1XOqqe5~rqk55U5SFfc9qNF42xeZ1wN0Q__',
+            uri: 'https://image.maxpreps.io/school-mascot/e/0/9/e095cff2-1a68-48bf-a8cb-7c85ea824e67.gif?version=637977130800000000&width=128&height=128&auto=webp&format=pjpg',
           }}
           style={styles.logo}
         />

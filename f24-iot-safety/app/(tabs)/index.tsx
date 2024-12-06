@@ -6,19 +6,19 @@ const players = [
     name: "CJ BAXTER",
     alerts: 6,
     impacts: 82,
-    image: "https://texaslonghorns.com/images/2023/10/12/Baxter_CJ-2023_ax9bd.png",
+    image: "https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg",
   },
   {
     name: "ANT HILL JR.",
     alerts: 4,
     impacts: 31,
-    image: "https://texaslonghorns.com/images/2024/9/5/Hill_Anthony_2024_crop_ZQDp4.jpg",
+    image: "https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg",
   },
   {
     name: "D. MOORE.",
     alerts: 2,
     impacts: 43,
-    image: "https://dxa7m90h2v1am.cloudfront.net/images/2024/9/5/Moore_DeAndre_2024_crop_Lgj3U.jpg?width=300",
+    image: "https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png",
   },
 ];
 
@@ -29,11 +29,11 @@ const BlitzApp: React.FC = () => {
       <View style={styles.banner}>
         <Image
           source={{
-            uri: "https://s3-alpha-sig.figma.com/img/9cd4/4ca0/cb5aa4a578a2576034af44f0874540dd?Expires=1732492800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=lRaW2yWCqjmih1TcvlOLC1i9YAvf4q7DucKs0nLwSEVNaiX956~lQpglh8W8XIMW6WBbaXEgdM5ViBWd5HWSk-3Bi6eWAAlvedd0CkFuq9UEnhpoUkiJJ1GOWNnt8Qt1Qd2wCgIfEuOqxd0-2BboOoTlnGztPQlv5NSlpYZGg3h5whkMO8xG4Rp5Sxl2wCJnovhzC-EcdTc9nBHrd3-DHoqDSlVr1022C-Dw6zgoUoKh0HMVo833UyPJIPRyLxjEYk9jVFTp5tGxisPFpRWXoneazVOqxh81sj9KDxHzzhBmV5gXonc4A1XOqqe5~rqk55U5SFfc9qNF42xeZ1wN0Q__",
+            uri: "https://image.maxpreps.io/school-mascot/e/0/9/e095cff2-1a68-48bf-a8cb-7c85ea824e67.gif?version=637977130800000000&width=128&height=128&auto=webp&format=pjpg",
           }}
           style={styles.logo}
         />
-        <Text style={styles.title}>UT FOOTBALL</Text>
+        <Text style={styles.title}>LAKE TRAVIS FOOTBALL</Text>
       </View>
 
       {/* Alerts Header */}
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
-    color: "black",
+    color: "white",
   },
   alertsHeader: {
     backgroundColor: "#D3D3D3",

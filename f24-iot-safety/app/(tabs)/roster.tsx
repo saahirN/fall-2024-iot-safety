@@ -11,7 +11,7 @@ import {
 const data = [
   {
     id: 1,
-    rank: 4,
+    rank: '04',
     name: 'CJ BAXTER',
     position: 'RB',
     height: "6'1",
@@ -19,11 +19,11 @@ const data = [
     year: '1L',
     risk: 'HIGH',
     percentage: '95%',
-    image: 'https://images.sidearmdev.com/convert?url=https%3a%2f%2fdxbhsrqyrr690.cloudfront.net%2fsidearm.nextgen.sites%2ftexassports_com%2fimages%2f2023%2f10%2f12%2fBaxter_CJ-2023_ax9bd.png&type=webp',
+    image: 'https://pbs.twimg.com/profile_images/1851305710958546944/quvNEDqr_400x400.jpg',
   },
   {
     id: 4,
-    rank: 7,
+    rank: '07',
     name: 'ISAIAH BOND',
     position: 'WR',
     height: "5'11",
@@ -31,7 +31,7 @@ const data = [
     year: 'TR',
     risk: 'MEDIUM',
     percentage: '68%',
-    image: 'https://texaslonghorns.com/images/2024/9/5/Moore_DeAndre_2024_crop_Lgj3U.jpg',
+    image: 'https://www.amarillo.com/gcdn/presto/2023/01/18/NAGN/438478cc-a329-4e79-96d6-d7eb3e83df34-20230116_Armando_Lujan_0011.JPG?crop=3209,1806,x0,y481&width=660&height=371&format=pjpg&auto=webp',
   },
   {
     id: 5,
@@ -43,11 +43,11 @@ const data = [
     year: '1L',
     risk: 'MEDIUM',
     percentage: '60%',
-    image: 'https://texaslonghorns.com/images/2023/10/13/Ewers_Quinn_2023.png',
+    image: 'https://static.hudl.com/users/prod/16700386_239d8e446c2f4e4397b374a746c8a442.jpg',
   },
   {
     id: 6,
-    rank: 5,
+    rank: '05',
     name: 'RYAN WINGO',
     position: 'WR',
     height: "6'2",
@@ -55,7 +55,7 @@ const data = [
     year: 'HS',
     risk: 'LOW',
     percentage: '20%',
-    image: 'https://via.placeholder.com/50?text=RW',
+    image: 'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM-1-e1536267956579.png',
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ const data = [
     year: '2L',
     risk: 'LOW',
     percentage: '10%',
-    image: 'https://dxa7m90h2v1am.cloudfront.net/images/2023/10/13/Taaffe_Michael_2023.png?width=300',
+    image: 'https://texashsfootball.com/wp-content/uploads/2023/04/Cedric-benson.png',
   },
   {
     id: 8,
@@ -79,7 +79,7 @@ const data = [
     year: '2L',
     risk: 'LOW',
     percentage: '30%',
-    image: 'https://via.placeholder.com/50?text=JW',
+    image: 'https://www.statesman.com/gcdn/authoring/authoring-images/2023/12/10/NAAS/71867742007-westlake-v-north-shore-football-playoff-sed-009.JPG?width=660&height=425&fit=crop&format=pjpg&auto=webp',
   },
   {
     id: 9,
@@ -91,7 +91,7 @@ const data = [
     year: '2L',
     risk: 'LOW',
     percentage: '12%',
-    image: 'https://texaslonghorns.com/images/2023/10/12/Baxter_CJ-2023_ax9bd.png',
+    image: 'https://www.crosstimbersgazette.com/crosstimbersgazette/wp-content/uploads/2018/09/Screen-Shot-2018-09-06-at-4.04.23-PM.png',
   },
   {
     id: 10,
@@ -103,7 +103,7 @@ const data = [
     year: 'FR',
     risk: 'LOW',
     percentage: '25%',
-    image: 'https://texaslonghorns.com/images/2024/2/15/Bond_Isaiah-2024.jpg',
+    image: 'https://www.oklahoman.com/gcdn/authoring/authoring-images/2024/01/03/NOKL/72101233007-all-state-4.jpg?width=660&height=440&fit=crop&format=pjpg&auto=webp',
   },
 ];
 
@@ -159,7 +159,7 @@ const RosterReport = () => {
         <Text style={styles.title}>ACTIVE ROSTER REPORT</Text>
       </View>
 
-      <Text style={styles.subtitle}>UT Austin Football Team</Text>
+      <Text style={styles.subtitle}>Lake Travis Football Team</Text>
 
       <FlatList
         data={sortedData}
