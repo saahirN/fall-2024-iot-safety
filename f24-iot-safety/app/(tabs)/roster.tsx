@@ -196,10 +196,11 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontWeight: 'bold',
+    alignContent: 'center', 
     fontSize: 30,
     marginTop: 24,
     marginBottom: 6,
-    marginLeft: 24,
+    marginLeft: 18,
   },
   banner: {
     alignItems: "center",
